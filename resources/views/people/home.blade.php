@@ -15,7 +15,7 @@
 <table class="table">
     <thead>
         <tr>
-        
+       
         <th scope="col">Name</th>
         <th scope="col">Email</th>
         <th scope="col">Action</th>
@@ -28,16 +28,17 @@
             <td> {{$persons->name}} </td>
             <td> {{$persons->email}}</td>
         <td> <a href="/person/{{$persons->id}}" class="btn btn-primary" >Details</a>
-                <button class="btn btn-danger" id="delete">Delete</button></td>
+
+        
+        <form method="post" action="/person/{{$persons->id}}">
+                @csrf
+                {{ method_field('delete') }}
+        <button type="submit" class="btn btn-danger" id="delete">Delete</button></td>
+        </form>
+            
         </tr>
         @endforeach
     </tbody>
       </table>
-
-      <script>
-
-
-      
-      </script>
 
 @endsection

@@ -87,7 +87,12 @@ class PersonController extends Controller
 
     public function destroy(Person $person)
     {
-        //
+        
+        $delete = Person::find($person->id);
+        $delete->delete();
+
+        return redirect('/person'); 
+
     }
 
     public function sendError($error, $errorMessages = [], $code = 404)
